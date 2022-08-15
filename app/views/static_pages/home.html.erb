@@ -1,0 +1,11 @@
+<%= form_with url: root_path, method: :get do |f| %>
+  <%= f.label :user_id, 'Flickr ID' %>
+  <%= f.text_field :user_id %>
+  <%= f.submit %>
+<% end %>
+
+<% if @photos %>
+  <% @photos.each do |photo| %>
+    <%= image_tag "https://live.staticflickr.com/#{photo.server}/#{photo.id}_#{photo.secret}.jpg" %>
+  <% end %>
+<% end %>
